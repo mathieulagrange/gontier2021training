@@ -1,0 +1,49 @@
+data:
+  root_dir: data
+  audio_dir: audio
+  dataset_name: simCENSE-18k
+  sr: 32000
+  pad_examples: false # false for 125ms models, true for 1s models
+  frame_length: 4096
+  hop_length: 4096
+  texture_length: 8
+  seq_length: 16 # Training sequence length for RNN classifier
+  val_split: 0.3
+  classes:
+  - 'T'
+  - 'V'
+  - 'B'
+  level_offset_db: 34.063 # Correction to apply on simulated data to obtain 'real' sound levels
+  allow_example_overlap: false # Was set to false for fast models, to true for slow models
+model:
+  checkpoint_dir: 'save'
+  logging_dir: 'logs'
+  load_full_pretrained: false
+  encoder:
+    pretraining: vec # Arbitrary name of pretraining, is part of the downstream model name
+    pretrained_dir: 'save'
+    pretrained_checkpoint: dataset_train_embeddingSize_128_keptTrain_100_lr_0.001_nbBlock_3_nbChannels_64_nbIterations_20_task_vec_textureSize_8_enc.pt
+    finetune: true # This affects encoder training regardless of pretrained initialization
+    nb_blocks: 3
+    nb_channels: 64
+    embedding_size: 128
+    kernel_size:
+    - 3 # T
+    - 3 # F
+    maxpool_size:
+    - 2 # T
+    - 2 # F
+    padding:
+    - 1 # T
+    - 1 # F
+  classifier:
+    type: rnn
+    hidden_dimensions: 128 # Dimension of recurrent state (RNN) or list of hidden layer dim. (CNN)
+training:
+  lr: 1.0e-04
+  batch_size: 32
+  nb_epochs: 100
+  force_cpu: false
+workflow:
+  train: true
+  validate: true
