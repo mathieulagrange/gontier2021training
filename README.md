@@ -1,7 +1,7 @@
 
 # Installation instructions
 
-## Setup repository
+## Setup
 
     python3.7 -m venv env/
     source env/bin/activate
