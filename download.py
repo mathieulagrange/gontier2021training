@@ -19,7 +19,7 @@ def main(config):
   'wget -O data/FSD-2k_train_presence.npy https://zenodo.org/record/4730390/files/FSD-2k_train_presence.npy?download=1',
   'wget -O data/FSD-2k_train_spectralData.npy https://zenodo.org/record/4730390/files/FSD-2k_train_spectralData.npy?download=1',
   'wget -O data/FSD-2k_validation_presence.npy https://zenodo.org/record/4730390/files/FSD-2k_validation_presence.npy?download=1',
-  'wget -O data/FSD-2k_validation_spectralData.npy https://zenodo.org/record/4730390/files/FSD-2k_validation_spectralData.npy?download=1'
+  'wget -O data/FSD-2k_validation_spectralData.npy https://zenodo.org/record/4730390/files/FSD-2k_validation_spectralData.npy?download=1',
   'wget -O data/augCENSE-18k_train_presence.npy https://zenodo.org/record/4733681/files/augCENSE-18k_train_presence.npy?download=1',
   'wget -O data/augCENSE-18k_train_spectralData.npy https://zenodo.org/record/4733681/files/augCENSE-18k_train_spectralData.npy?download=1',
   'wget -O data/augCENSE-18k_validation_presence.npy https://zenodo.org/record/4733681/files/augCENSE-18k_validation_presence.npy?download=1',
